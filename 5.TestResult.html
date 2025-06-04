@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master - My Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Typing Master</h1>
+            <p>Master your typing speed and accuracy</p>
+        </div>
+
+        <div class="user-info" id="userInfo" style="display: none;">
+            <span id="welcomeMessage">Welcome back!</span>
+            <button class="btn" onclick="logout()" style="margin-left: 15px;">Logout</button>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn" onclick="location.href='1.homePage.html'">Home</button>
+            <button class="nav-btn" onclick="location.href='4.userLoginPage.html'">Login</button>
+            <button class="nav-btn" onclick="location.href='2.userRegister.html'">Register</button>
+            <button class="nav-btn" onclick="location.href='3.userResetPassword.html'">Reset Password</button>
+            <button class="nav-btn" onclick="location.href='6.TypingTest.html'">Typing Test</button>
+            <button class="nav-btn active">My Results</button>
+            <button class="nav-btn" onclick="location.href='7.AboutUs.html'">About Us</button>
+        </div>
+
+        <div class="page active">
+            <h2>Your Typing Test Results</h2>
+            <p style="margin-bottom: 20px; color: #666;">
+                Track your progress and see how you're improving over time.
+            </p>
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>WPM</th>
+                        <th>Accuracy</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsTableBody">
+                    <tr>
+                        <td>2024-06-04</td>
+                        <td>45</td>
+                        <td>95%</td>
+                        <td>2:30</td>
+                        <td>✅ Completed</td>
+                    </tr>
+                    <tr>
+                        <td>2024-06-03</td>
+                        <td>42</td>
+                        <td>88%</td>
+                        <td>3:15</td>
+                        <td>✅ Completed</td>
+                    </tr>
+                    <tr>
+                        <td>2024-06-02</td>
+                        <td>38</td>
+                        <td>92%</td>
+                        <td>2:45</td>
+                        <td>✅ Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="location.href='6.TypingTest.html'" style="font-size: 18px; padding: 15px 40px;">
+                    Take New Test
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkUserSession();
+            loadUserResults();
+        });
+
+        function loadUserResults() {
+            const savedResults = localStorage.getItem('typingTestResults');
+            if (savedResults) {
+                const results = JSON.parse(savedResults);
+                const tableBody = document.getElementById('resultsTableBody');
+                tableBody.innerHTML = '';
+                results.forEach(result => {
+                    const row = tableBody.insertRow();
+                    row.innerHTML = `
+                        <td>${result.date}</td>
+                        <td>${result.wpm}</td>
+                        <td>${result.accuracy}%</td>
+                        <td>${result.time}</td>
+                        <td>✅ Completed</td>
+                    `;
+                });
+            }
+        }
+    </script>
+</body>
+</html>
