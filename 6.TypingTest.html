@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master - Typing Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Typing Master</h1>
+            <p>Master your typing speed and accuracy</p>
+        </div>
+
+        <div class="user-info" id="userInfo" style="display: none;">
+            <span id="welcomeMessage">Welcome back!</span>
+            <button class="btn" onclick="logout()" style="margin-left: 15px;">Logout</button>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn" onclick="location.href='1.homePage.html'">Home</button>
+            <button class="nav-btn" onclick="location.href='4.userLoginPage.html'">Login</button>
+            <button class="nav-btn" onclick="location.href='2.userRegister.html'">Register</button>
+            <button class="nav-btn" onclick="location.href='3.userResetPassword.html'">Reset Password</button>
+            <button class="nav-btn active">Typing Test</button>
+            <button class="nav-btn" onclick="location.href='5.TestResult.html'">My Results</button>
+            <button class="nav-btn" onclick="location.href='7.AboutUs.html'">About Us</button>
+        </div>
+
+        <div class="page active">
+            <h2>Typing Speed Test</h2>
+            
+            <div class="typing-area">
+                <div class="sample-text" id="sampleText">
+                    The quick brown fox jumps over the lazy dog. This pangram contains every letter of the alphabet and is commonly used for typing practice. Touch typing is a method of typing without looking at the keyboard, using muscle memory to find keys. Regular practice can significantly improve your typing speed and accuracy.
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                
+                <textarea 
+                    class="typing-input" 
+                    id="typingInput" 
+                    placeholder="Start typing the text above here..."
+                    oninput="updateProgress()"
+                    onpaste="return false">
+                </textarea>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="currentWpm">0</div>
+                    <div class="stat-label">WPM</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="currentAccuracy">100%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="timeElapsed">0:00</div>
+                    <div class="stat-label">Time</div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn" onclick="startTest()" id="startBtn">Start Test</button>
+                <button class="btn" onclick="resetTest()" id="resetBtn" style="margin-left: 10px;">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkUserSession();
+        });
+    </script>
+</body>
+</html>

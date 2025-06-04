@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Typing Master</h1>
+            <p>Master your typing speed and accuracy</p>
+        </div>
+
+        <div class="user-info" id="userInfo" style="display: none;">
+            <span id="welcomeMessage">Welcome back!</span>
+            <button class="btn" onclick="logout()" style="margin-left: 15px;">Logout</button>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn active">Home</button>
+            <button class="nav-btn" onclick="location.href='4.userLoginPage.html'">Login</button>
+            <button class="nav-btn" onclick="location.href='2.userRegister.html'">Register</button>
+            <button class="nav-btn" onclick="location.href='3.userResetPassword.html'">Reset Password</button>
+            <button class="nav-btn" onclick="location.href='6.TypingTest.html'">Typing Test</button>
+            <button class="nav-btn" onclick="location.href='5.TestResult.html'">My Results</button>
+            <button class="nav-btn" onclick="location.href='7.AboutUs.html'">About Us</button>
+        </div>
+
+        <div class="page active">
+            <h2>Welcome to Typing Master! 🎯</h2>
+            <p style="font-size: 18px; line-height: 1.6; margin: 20px 0;">
+                Improve your typing speed and accuracy with our comprehensive typing test platform. 
+                Track your progress, compete with friends, and become a typing master!
+            </p>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value">45</div>
+                    <div class="stat-label">Average WPM</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">92%</div>
+                    <div class="stat-label">Average Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,234</div>
+                    <div class="stat-label">Tests Taken</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="location.href='6.TypingTest.html'" style="font-size: 18px; padding: 15px 40px;">
+                    Start Typing Test 
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkUserSession();
+        });
+    </script>
+</body>
+</html>
