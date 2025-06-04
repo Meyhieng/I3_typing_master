@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master - Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> Typing Master</h1>
+            <p>Master your typing speed and accuracy</p>
+        </div>
+
+        <div class="user-info" id="userInfo" style="display: none;">
+            <span id="welcomeMessage">Welcome back!</span>
+            <button class="btn" onclick="logout()" style="margin-left: 15px;">Logout</button>
+        </div>
+
+        <div class="nav">
+            <button class="nav-btn" onclick="location.href='1.homePage.html'">Home</button>
+            <button class="nav-btn" onclick="location.href='4.userLoginPage.html'">Login</button>
+            <button class="nav-btn active">Register</button>
+            <button class="nav-btn" onclick="location.href='3.userResetPassword.html'">Reset Password</button>
+            <button class="nav-btn" onclick="location.href='6.TypingTest.html'">Typing Test</button>
+            <button class="nav-btn" onclick="location.href='5.TestResult.html'">My Results</button>
+            <button class="nav-btn" onclick="location.href='7.AboutUs.html'">About Us</button>
+        </div>
+
+        <div class="page active">
+            <h2>Create Your Account</h2>
+            <form onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" required>
+                </div>
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+            <p style="margin-top: 15px;">
+                Already have an account? <a href="4.userLoginPage.html" style="color: #667eea;">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkUserSession();
+        });
+    </script>
+</body>
+</html>
